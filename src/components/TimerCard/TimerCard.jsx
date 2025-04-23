@@ -34,13 +34,7 @@ export default function TimerCard({ timer }) {
   const handleDelete = () => dispatch(removeTimer(timer.id));
 
   return (
-    <div
-      style={{
-        border: '1px solid #ccc',
-        padding: 10,
-        marginBottom: 10,
-      }}
-    >
+    <div className="timer-card">
       <h3>{timer.label}</h3>
       <p title={`${displayTime}ms`}>
         Elapsed Time: {formatTime(displayTime)}

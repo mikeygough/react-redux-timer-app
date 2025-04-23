@@ -31,14 +31,17 @@ const timersSlice = createSlice({
       }
     },
     removeTimer: (state, action) => {
-      const timerIndex = state.findIndex(
-        (t) => t.id === action.payload
-      );
-      delete state[timerIndex];
+      const idToRemove = action.payload;
+      return state.filter((timer) => timer.id !== idToRemove);
     },
   },
 });
 
-export const { addTimer, pauseTimer, resumeTimer, resetTimer } =
-  timersSlice.actions;
+export const {
+  addTimer,
+  pauseTimer,
+  resumeTimer,
+  resetTimer,
+  removeTimer,
+} = timersSlice.actions;
 export default timersSlice.reducer;
